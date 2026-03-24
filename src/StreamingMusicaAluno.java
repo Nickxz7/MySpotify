@@ -2,12 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Map;
 import java.util.HashMap;
-/**
- * Sistema de Streaming de Música - CP1
- * VERSÃO ALUNO
- *
- * Complete as partes marcadas com TODO.
- */
+
 public class StreamingMusicaAluno {
 
     // ArrayLists para armazenar os dados das músicas
@@ -35,9 +30,7 @@ public class StreamingMusicaAluno {
         scanner.close();
     }
 
-    /**
-     * FORNECIDO: Exibe o menu principal
-     */
+   
     public static void exibirMenu() {
         System.out.println("\n" + "=".repeat(50));
         System.out.println("🎵 SISTEMA DE STREAMING DE MÚSICA 🎵");
@@ -53,9 +46,7 @@ public class StreamingMusicaAluno {
         System.out.print("Escolha uma opção: ");
     }
 
-    /**
-     * FORNECIDO: Lê a opção do usuário com tratamento de erro
-     */
+    
     public static int lerOpcao() {
         try {
             return Integer.parseInt(scanner.nextLine());
@@ -64,9 +55,7 @@ public class StreamingMusicaAluno {
         }
     }
 
-    /**
-     * FORNECIDO: Processa a opção escolhida
-     */
+   
     public static void processarOpcao(int opcao) {
         switch (opcao) {
             case 1: cadastrarMusica(); break;
@@ -80,9 +69,7 @@ public class StreamingMusicaAluno {
         }
     }
 
-    /**
-     * FORNECIDO: Cadastra uma nova música
-     */
+   
     public static void cadastrarMusica() {
         System.out.println("\n--- CADASTRAR MÚSICA ---");
 
@@ -145,9 +132,7 @@ public class StreamingMusicaAluno {
         System.out.println("✅ Música cadastrada com sucesso!");
     }
 
-    /**
-     * FORNECIDO: Lista todas as músicas
-     */
+    
     public static void listarMusicas() {
         System.out.println("\n--- MÚSICAS CADASTRADAS ---");
 
@@ -169,9 +154,7 @@ public class StreamingMusicaAluno {
         System.out.println("\nTotal: " + titulos.size() + " música(s)");
     }
 
-    /**
-     * FORNECIDO: Busca músicas por título
-     */
+    
     public static void buscarPorTitulo() {
         System.out.println("\n--- BUSCAR POR TÍTULO ---");
 
@@ -294,25 +277,22 @@ public class StreamingMusicaAluno {
         for (int duracao : duracoes) {
             duracaoTotalSegundos += duracao;
         }
-        // Dica: usar for-each para percorrer duracoes
 
         int duracaoMedia = duracaoTotalSegundos / totalMusicas;
 
 
-        Map<String, Integer> contador = new HashMap<>(); // cria o "caderno" de contagem
+        Map<String, Integer> contador = new HashMap<>(); 
 
         for (String genero : generos) {
-            // pega quantas vezes o gênero já apareceu (ou 0 se ainda não apareceu) e soma 1
             contador.put(genero, contador.getOrDefault(genero, 0) + 1);
         }
 
-        // Descobre qual gênero aparece mais vezes
         String generoMaisComum = "";
         int maior = 0;
         for (Map.Entry<String, Integer> entry : contador.entrySet()) {
             if (entry.getValue() > maior) {
-                maior = entry.getValue();       // atualiza o maior contador
-                generoMaisComum = entry.getKey(); // atualiza o gênero mais comum
+                maior = entry.getValue();       
+                generoMaisComum = entry.getKey(); 
             }
         }
 
@@ -324,18 +304,14 @@ public class StreamingMusicaAluno {
 
     }
 
-    /**
-     * FORNECIDO: Formata duração de segundos para MM:SS
-     */
+    
     public static String formatarDuracao(int segundos) {
         int minutos = segundos / 60;
         int segs = segundos % 60;
         return String.format("%d:%02d", minutos, segs);
     }
 
-    /**
-     * FORNECIDO: Adiciona músicas de teste
-     */
+  
     public static void adicionarMusicasTeste() {
         titulos.add("Bohemian Rhapsody");
         artistas.add("Queen");
